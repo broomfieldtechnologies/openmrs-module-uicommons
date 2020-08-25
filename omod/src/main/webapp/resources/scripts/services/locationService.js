@@ -1,6 +1,6 @@
 angular.module('locationService', ['ngResource', 'uicommons.common'])
     .factory('Location', function($resource) {
-        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/location/:uuid", {
+        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/getlocationforenterpriseid/:uuid", {
             uuid: '@uuid'
         },{
             query: { method:'GET' }     // override query method to specify that it isn't an array that is returned
@@ -16,6 +16,13 @@ angular.module('locationService', ['ngResource', 'uicommons.common'])
              * @param params to search against
              * @returns $promise of array of matching Locations (REST ref representation by default)
              */
+        	getLocationsFor: function(params) {
+            	return LocationService.getAllLocationsForEnterpriseId();
+//                return Location.getPossibleValues().$promise
+//                    .then(function(res) {
+//                        return res.results;
+//                    }, emr.handleNotLoggedIn);
+            },
             getLocations: function(params) {
                 return Location.query(params).$promise
                     .then(function(res) {
