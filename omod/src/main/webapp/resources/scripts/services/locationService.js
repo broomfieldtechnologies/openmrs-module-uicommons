@@ -16,13 +16,6 @@ angular.module('locationService', ['ngResource', 'uicommons.common'])
              * @param params to search against
              * @returns $promise of array of matching Locations (REST ref representation by default)
              */
-        	getLocationsFor: function(params) {
-            	return LocationService.getAllLocationsForEnterpriseId();
-//                return Location.getPossibleValues().$promise
-//                    .then(function(res) {
-//                        return res.results;
-//                    }, emr.handleNotLoggedIn);
-            },
             getLocations: function(params) {
                 return Location.query(params).$promise
                     .then(function(res) {
