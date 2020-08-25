@@ -1,6 +1,6 @@
 angular.module('locationService', ['ngResource', 'uicommons.common'])
     .factory('Location', function($resource) {
-        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/location/:uuid", {
+        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/getlocationforenterpriseid/:uuid", {
             uuid: '@uuid'
         },{
             query: { method:'GET' }     // override query method to specify that it isn't an array that is returned
