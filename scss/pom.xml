@@ -68,7 +68,7 @@
                 </executions>
             </plugin>
 
-            <plugin>
+<!--             <plugin>
                 <groupId>de.saumya.mojo</groupId>
                 <artifactId>gem-maven-plugin</artifactId>
                 <extensions>true</extensions>
@@ -85,7 +85,7 @@
                     <execArgs>${gem.home}/bin/compass compile ${basedir}/src/main/resources</execArgs>
                 </configuration>
             </plugin>
-        </plugins>
+ -->        </plugins>
     </build>
 
     <profiles>
@@ -93,7 +93,7 @@
             <id>watch-sass</id>
             <build>
                 <plugins>
-                    <plugin>
+<!--                     <plugin>
                         <groupId>de.saumya.mojo</groupId>
                         <artifactId>gem-maven-plugin</artifactId>
                         <extensions>true</extensions>
@@ -110,7 +110,7 @@
                             <execArgs>${gem.home}/bin/compass watch ${basedir}/src/main/resources</execArgs>
                         </configuration>
                     </plugin>
-                </plugins>
+ -->                </plugins>
             </build>
         </profile>
     </profiles>
