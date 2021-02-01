@@ -169,6 +169,19 @@ PhoneFieldValidator.prototype.isValid = function(fieldValue) {
     return true;
 }
 
+function EmailFieldValidator() {
+    this.messageIdentifier = "emailField";
+}
+EmailFieldValidator.prototype = new FieldValidator();
+EmailFieldValidator.prototype.constructor = EmailFieldValidator;
+EmailFieldValidator.prototype.isValid = function(fieldValue) {
+    var emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (fieldValue && fieldValue.length > 0) {
+        return emailRegex.test(fieldValue);
+    }
+    return true;
+}
+
 var Validators = {
     required: new RequiredFieldValidator(),
     date: new DateFieldValidator(),
@@ -176,7 +189,8 @@ var Validators = {
     number: new NumberFieldValidator(),
     "numeric-range": new NumericRangeFieldValidator(),
     regex: new RegexFieldValidator(),
-    phone: new PhoneFieldValidator()
+    phone: new PhoneFieldValidator(),
+    email: new EmailFieldValidator()
 }
 
 /****************   QUESTION VALIDATORS   *****/
