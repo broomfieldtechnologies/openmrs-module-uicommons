@@ -1,6 +1,6 @@
 angular.module('providerService', ['ngResource','uicommons.common'])
     .factory('Provider', function($resource) {
-        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/provider/:uuid", {
+        return $resource("/" + OPENMRS_CONTEXT_PATH  + "/ws/rest/v1/providerbyenterprise/:uuid", {
         },{
             query: { method:'GET' }     // override query method to specify that it isn't an array that is returned
         });
